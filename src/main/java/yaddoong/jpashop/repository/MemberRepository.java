@@ -1,5 +1,6 @@
 package yaddoong.jpashop.repository;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import yaddoong.jpashop.domain.Member;
 
@@ -7,10 +8,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
