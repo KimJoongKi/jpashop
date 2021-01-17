@@ -21,6 +21,11 @@
 - ~/jpashop.mv.db 파일 생성 확인
 - 이후 부터는 jdbc:h2:tcp://localhost/~/jpashop 이렇게 접속
 
+### 데이터베이스 설계
+
+### 엔티티 클래스 개발
+
+
 
 
 
