@@ -13,6 +13,8 @@ import yaddoong.jpashop.domain.item.Book;
 import yaddoong.jpashop.domain.item.Item;
 import yaddoong.jpashop.service.ItemService;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
@@ -38,6 +40,12 @@ public class ItemController {
 
         itemService.saveItem(book);
         return "redirect:/";
+    }
+
+    @PostMapping(value = "/items/{itemId}/edit")
+    public String updateItem(@ModelAttribute("form") BookForm form) {
+        itemService.updateItem(form.getId(), form.getName(), form.getPrice());
+        return "redirect:/items";
     }
 
     @GetMapping("/items")
