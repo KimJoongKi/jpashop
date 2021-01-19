@@ -11,6 +11,7 @@ import yaddoong.jpashop.domain.item.Item;
 import yaddoong.jpashop.repository.ItemRepository;
 import yaddoong.jpashop.repository.MemberRepository;
 import yaddoong.jpashop.repository.OrderRepository;
+import yaddoong.jpashop.repository.OrderSearch;
 
 import java.util.List;
 
@@ -66,5 +67,8 @@ public class OrderService {
     /**
      * 주문 검색
      */
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByString(orderSearch);
+    }
 
 }
