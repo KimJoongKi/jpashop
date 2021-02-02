@@ -3,6 +3,7 @@ package yaddoong.jpashop.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import yaddoong.jpashop.api.OrderSimpleApiController;
 import yaddoong.jpashop.domain.Member;
 import yaddoong.jpashop.domain.Order;
 
@@ -92,4 +93,5 @@ public class OrderRepository {
                 " join fetch o.delivery d", Order.class)
                 .getResultList();
     }
+
 }

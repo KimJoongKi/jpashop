@@ -9,6 +9,8 @@ import yaddoong.jpashop.domain.Order;
 import yaddoong.jpashop.domain.OrderStatus;
 import yaddoong.jpashop.repository.OrderRepository;
 import yaddoong.jpashop.repository.OrderSearch;
+import yaddoong.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
+import yaddoong.jpashop.repository.order.simplequery.OrderSimpleQueryRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderSimpleQueryRepository orderSimpleQueryRepository;
 
     @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1() {
@@ -53,7 +56,11 @@ public class OrderSimpleApiController {
                 .collect(Collectors.toList());
 
         return result;
+    }
 
+    @GetMapping("/api/v4/simple-orders")
+    public List<OrderSimpleQueryDto> orderV4() {
+        return orderSimpleQueryRepository.findOrderDtos();
     }
 
     @Data
